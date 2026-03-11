@@ -756,7 +756,7 @@ require('lazy').setup({
               kind_icon = {
                 ellipsis = false,
                 text = function(ctx) return not vim.g.have_nerd_font and '' or ctx.kind_icon .. ctx.icon_gap end,
-                hl = function(ctx) return not vim.g.have_nerd_font and '' or ctx.kind_hl end,
+                highlight = function(ctx) return not vim.g.have_nerd_font and '' or ctx.kind_hl end,
               },
             },
           },
