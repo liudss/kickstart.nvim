@@ -100,18 +100,21 @@ if vim.g.neovide then
     vim.g['neovide_' .. option] = value
   end
 
-  -- Cursor animation
+  -- Power Saving & Performance
+  neovide_set('refresh_rate_idle', 5)          -- Lower refresh rate when idle (saves GPU/CPU)
+  neovide_set('no_idle', false)               -- Ensure Neovide handles idle states properly
+  neovide_set('cursor_smooth_blink', false)   -- Disable smooth blinking to reduce redraws
+  neovide_set('cursor_vfx_mode', '')          -- Disable particle effects
+
+  -- Cursor animation (Short/Disabled for power saving)
   neovide_set('cursor_animation_length', 0)    -- Disable cursor movement animation
   neovide_set('cursor_trail_size', 0)          -- Length of the trail (0 to disable)
   neovide_set('cursor_antialiasing', true)     -- Smoother cursor edges
 
   -- Scroll animation
-  neovide_set('scroll_animation_length', 0.1)  -- Faster scrolling animation
+  neovide_set('scroll_animation_length', 0.05) -- Fast/Snappy scroll animation
 
-  -- Additional options
-  neovide_set('no_idle', false)                -- Ensure Neovide handles idle states properly
-
-  -- Refresh rate (can improve smoothness if your monitor supports higher)
+  -- Refresh rate (Cap it to 60 if you want to save more battery on high-refresh screens)
   -- neovide_set('refresh_rate', 60)
 end
 
