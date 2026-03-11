@@ -93,6 +93,28 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
 
+-- [[ Neovide Configuration ]]
+if vim.g.neovide then
+  -- Helper to set neovide options
+  local neovide_set = function(option, value)
+    vim.g['neovide_' .. option] = value
+  end
+
+  -- Cursor animation
+  neovide_set('cursor_animation_length', 0)    -- Disable cursor movement animation
+  neovide_set('cursor_trail_size', 0)          -- Length of the trail (0 to disable)
+  neovide_set('cursor_antialiasing', true)     -- Smoother cursor edges
+
+  -- Scroll animation
+  neovide_set('scroll_animation_length', 0.1)  -- Faster scrolling animation
+
+  -- Additional options
+  neovide_set('no_idle', false)                -- Ensure Neovide handles idle states properly
+
+  -- Refresh rate (can improve smoothness if your monitor supports higher)
+  -- neovide_set('refresh_rate', 60)
+end
+
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
