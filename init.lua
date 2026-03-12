@@ -658,6 +658,18 @@ require('lazy').setup({
       --
       -- You can press `g?` for help in this menu.
       local ensure_installed = vim.tbl_keys(servers or {})
+
+      -- Logic to prioritize system-installed clangd
+      if vim.fn.executable('clangd') == 1 then
+        -- If clangd is in the system path, remove it from the mason installation list
+        for i, name in ipairs(ensure_installed) do
+          if name == 'clangd' then
+            table.remove(ensure_installed, i)
+            break
+          end
+        end
+      end
+
       vim.list_extend(ensure_installed, {
         -- You can add other tools here that you want Mason to install
       })
