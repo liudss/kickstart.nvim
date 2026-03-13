@@ -648,8 +648,8 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
+        texlab = {},
       }
-
       -- Ensure the servers and tools above are installed
       --
       -- To check the current status of installed tools and/or manually install
@@ -906,7 +906,7 @@ require('lazy').setup({
     branch = 'main',
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter-intro`
     config = function()
-      local parsers = { 'bash', 'c', 'cpp', 'diff', 'html', 'markdown', 'markdown_inline', 'query', 'json', 'yaml', 'toml', 'dockerfile', 'xml', 'ini', 'git_config', 'gitignore', 'ssh_config' }
+      local parsers = { 'bash', 'c', 'cpp', 'diff', 'html', 'latex', 'bibtex', 'markdown', 'markdown_inline', 'query', 'json', 'yaml', 'toml', 'dockerfile', 'xml', 'ini', 'git_config', 'gitignore', 'ssh_config' }
       require('nvim-treesitter').install(parsers)
       vim.api.nvim_create_autocmd('FileType', {
         callback = function(args)
